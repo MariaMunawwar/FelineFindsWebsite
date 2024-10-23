@@ -1,0 +1,68 @@
+Cat ID,Age (Years),Breed,Gender,Weight (lbs),Environment,Symptom 1,Symptom 2,Symptom 3,Illness
+1,3,Maine Coon ,M,15,Indoor,Frequent Urination,Weight Loss,Drinking a lot,Kidney Disease
+2,7,Siamese,F,10,Indoor,Weight Loss,Increased Thirst,Dehydration,Diabetes
+3,2,Ragdoll,F,8,Indoor,Gingivitis,Loss of Appetite,Poor Coat Condition,FIV
+4,4,Bengal,M,12,Outdoor,Seizures,Persistent Diarrhea,Weight Loss,FeLV
+5,1,Persian,F,7,Indoor,Weight Loss,Diarrhea,Vomiting,Cancer
+6,9,Sphynx,M,9,Indoor,Diabetes,Joint Problems,Heart Disease,Obesity
+7,5,British Sh. ,M,11,Outdoor,Vomiting,Fever,Abdominal Pain,Pancreatitis
+8,6,Russian Blue,F,14,Indoor,Increased Appetite,Weight Loss,Restlessness,Hyperthyroidism
+9,3,Tuxedo,M,11,Indoor,Straining to urinate,Drinking more,Bloody urine,FLUTD
+10,8,American Sh.,M,12,Outdoor,Flea Dirt,Constant scratching,Hair Loss,Fleas
+11,2,Siamese,F,15,Indoor,Irritation in anus,Weight Loss,Vomiting,Tape Worm 
+12,5,Ragdoll,F,9,Outdoor,Lethargy ,Depression,Yellow Foam Vomiting,Feline Panleukopenia
+13,3,Bengal,F,13,Indoor,Drinking a lot,Bloody Urine,Vomiting,Kidney Disease
+14,4,Persian,M,8,Indoor,Weight Loss,Sweet smelling breath,Lethargy,Diabetes
+15,7,Maine Coon ,M,13,Outdoor,Fever,Chronic infection,Gingivitis,FIV
+16,1,Siamese,F,15,Indoor,Seizures,Persistent Fever,Skin infection,FeLV
+17,6,Ragdoll,M,13,Indoor,Anorexia,Diarrhea,Vomiting,Cancer
+18,9,Bengal,F,12,Outdoor,Increased Thirst,Joint Problems,Cancer,Obesity
+19,8,Persian,M,7,Indoor,Vomiting,Fever ,Decreased Appetite,Pancreatitis
+20,4,Sphynx,F,12,Outdoor,Excessive Energy ,Increased Appetite,Weight Loss,Hyperthyroidism
+21,5,British Sh. ,M,11,Indoor,Drinking a lot,Straining to urine,Bloody urine,FLUTD
+22,3,Russian Blue,M,8,Indoor,Flea Dirt,Frequent licking,Red or irritated skin,Fleas
+23,2,Tuxedo,M,9,Indoor,Irritation in anus,Weight Loss,Dehydration,Tape Worm 
+24,1,American Sh.,F,10,Outdoor,Lethargy ,Vomiting ,Diarrhea,Feline Panleukopenia
+25,7,Siamese,M,13,Indoor,Frequent Urination,Weight Loss,Dry coat,Kidney Disease
+26,9,Ragdoll,F,10,Outdoor,Weight Loss,Increased Thirst,Lethargy,Diabetes
+27,4,Bengal,F,11,Indoor,Gingivitis,Loss of Appetite,Fever,FIV
+28,3,Persian,M,7,Outdoor,Seizures,Eye conditions,Persistent diarrhea,FeLV
+29,2,Sphynx,F,9,Indoor,Weight Loss,Anorexia,Diarrhea,Cancer
+30,6,British Sh. ,M,15,Indoor,Diabetes,Cancer,Joint problem,Obesity
+31,8,Russian Blue,F,13,Outdoor,Vomiting,Abdominal Pain,Diarrhea,Pancreatitis
+32,9,Tuxedo,M,8,Indoor,Excessive Energy ,Restlessness,Increased appetite,Hyperthyroidism
+33,1,British Sh. ,M,11,Indoor,Drinking a lot,Depression,Dehydration,FLUTD
+34,3,Russian Blue,F,10,Outdoor,Flea Dirt,Constant scratching,Skin infection,Fleas
+35,3,British Sh. ,F,8,Indoor,Irritation in Anus ,Anemia,Dehydration,Tape Worm 
+36,5,American Sh.,F,10,Outdoor,Lethargy ,Painful abdomen,Depression,Feline Panleukopenia
+37,1,Siamese,M,9,Indoor,Frequent Urination,Drinking more,Vomiting,Kidney Disease
+38,9,Ragdoll,M,14,Outdoor,Weight Loss,Sweet smelling breath,Increased thirst,Diabetes
+39,4,Bengal,F,8,Indoor,Fever,Gingivitis,Poor Coat Condition,FIV
+40,3,Persian,M,10,Outdoor,Seizures,Persistent Fever ,Weight Loss,FeLV
+41,6,Sphynx,F,11,Indoor,Anorexia,Vomiting ,Diarrhea,Cancer
+42,8,British Sh. ,M,14,Outdoor,Diabetes,Heart Disease,Cancer,Obesity
+43,2,Russian Blue,F,13,Indoor,Vomiting,Fever,Decreased Appetite,Pancreatitis
+44,5,Tuxedo,M,12,Indoor,Increased Appetite,Restlessness,Weight Loss,Hyperthyroidism
+45,3,American Sh.,F,15,Outdoor,Drinking a lot,Straining to urine,Bloody urine,FLUTD
+46,4,Siamese,M,7,Indoor,Flea Dirt,Hair loss,Frequent licking,Fleas
+47,6,Ragdoll,F,8,Outdoor,Irritation in anus,Vomiting ,Diarrhea ,Tape Worm 
+48,1,Bengal,M,10,Indoor,Lethargy ,Diarrhea,Vomiting,Feline Panleukopenia
+49,3,Persian,F,9,Outdoor,Frequent Urination,Weight Loss,Dry coat,Kidney Disease
+50,7,Sphynx,M,7,Indoor,Weight Loss,Increased Thirst,Dehydration,Diabetes
+51,5,Maine Coon ,F,10,Indoor,Gingivitis,Loss of Appetite,Fever,FIV
+52,2,Siamese,F,11,Indoor,Seizures,Eye conditions,Persistent diarrhea,FeLV
+53,6,Ragdoll,F,14,Outdoor,Weight Loss,Anorexia,Diarrhea,Cancer
+54,3,Bengal,M,8,Indoor,Diabetes,Cancer,Joint problem,Obesity
+55,8,Persian,M,9,Indoor,Vomiting,Abdominal Pain,Diarrhea,Pancreatitis
+56,4,Sphynx,F,9,Indoor,Excessive Energy ,Restlessness,Increased appetite,Hyperthyroidism
+57,3,British Sh. ,F,11,Indoor,Drinking a lot,Depression,Dehydration,FLUTD
+58,1,Russian Blue,M,13,Outdoor,Flea dirt ,Constant scratching,Skin infection,Fleas
+59,3,Tuxedo,M,14,Indoor,Irritation in anus,Weight Loss,Dehydration,Tape Worm 
+60,9,American Sh.,F,15,Outdoor,Lethargy ,Painful abdomen,Depression,Feline Panleukopenia
+61,2,Maine Coon ,F,15,Indoor,Frequent Urination,Drinking more,Vomiting,Kidney Disease
+62,4,Siamese,M,12,Outdoor,Weight Loss,Sweet smelling breath,Increased thirst,Diabetes
+63,6,Ragdoll,F,9,Indoor,Fever,Gingivitis,Poor Coat Condition,FIV
+64,5,Bengal,M,7,Outdoor,Seizures,Persistent Fever,Weight Loss,FeLV
+65,7,Persian,F,8,Indoor,Anorexia,Vomiting ,Diarrhea,Cancer
+66,1,Sphynx,F,15,Outdoor,Diabetes,Heart Disease,Cancer,Obesity
+67,3,British Sh. ,M,13,Indoor,Vomiting,Fever,Decreased Appetite,Pancreatitis

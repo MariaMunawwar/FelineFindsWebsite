@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FelineFind Prediction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+   <style>
+
+    .navbar {
+        background-color: #000000;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        z-index: 2;
+        font-family: 'Nunito', sans-serif;
+    }
+
+    .navbar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar li {
+        margin-right: 20px;
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color:#c59958;
+    }
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: black;
+        color:#c59958;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        top: 100%;
+        left: 0;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        display: block;
+        padding: 10px;
+    }
+
+    .logo {
+        font-weight: bold;
+        padding-right: 15px;
+        font-size: 25px;
+        padding-left:0px;
+    }
+    .logo1{
+        margin-right: 2px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        
+    }
+    
+    #myVideo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%; 
+        height: 100%;
+        z-index: -1; /* Place video behind other elements */
+        object-fit: cover;
+    }
+    
+    .container {
+        position: relative;
+        z-index: 1; /* Place content above video */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3%;
+        color: white;
+    }
+
+    @font-face {
+        font-family: 'MedicFont';
+        src: url("/static/SoftCore.ttf");
+    }
+    
+    h1 {
+        font-family: 'MedicFont';
+        text-transform: uppercase;
+        text-shadow: 2px 2px 4px #000000;
+        font-size: 52px;
+    }
+    
+    form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1em;
+        width: 50%;
+        margin-bottom: 2em;
+    }
+    
+    label, select, input {
+        margin-bottom: 1em;
+    }
+    
+    button {
+        grid-column: span 2;
+        padding: 1em;
+        border: none;
+        border-radius: 5px;
+        background-color: rgb(27, 139, 139);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        justify-self: center;
+        width: 40%;
+    }
+    
+    button:hover {
+        background-color: rgb(22, 109, 109);
+    }
+    
+    #prediction {
+        font-size: 1.5em;
+        color: white;
+        text-shadow: 2px 2px 4px #000000;
+        margin-top: 1em;
+        text-align: center;
+    }
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 2; /* Sit on top */
+        padding-top: 250px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+      
+      .modal-content {
+        background-color: rgba(255, 255, 255, .15);
+        backdrop-filter: blur(5px);
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+      
+      .close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      
+ 
+   </style>
+    
+</head>
+<body>
+        <!-- Adding navbar-->
+        <navbar>
+            <div class="navbar">
+                <ul>
+                    <li class="logo1"><a href="#"><img src="static/logo1.png" height="45px" alt="FelineFinds Logo"></a></li>
+                    <li class="logo"><a href="#"><strong>FelineFinds</strong></a></li>
+                    <li><a href="http://localhost/felinefinds/main.html">Home</a></li>
+                    <li><a href="http://localhost/felinefinds/about.html">About Us</a></li>
+                    <li><a href="http://localhost/felinefinds/cats.php">Cats</a></li>
+                    <li class="dropdown">
+                        <a href="#">Accessories</a>
+                        <div class="dropdown-content">
+                            <a href="http://localhost/felinefinds/catfood.php">Food</a>
+                            <a href="http://localhost/felinefinds/cattoy.php">Toys</a>
+                            <a href="http://localhost/felinefinds/catcloth.php">Clothing</a>
+                        </div>
+                    </li>
+                    <li><a href="http://localhost/felinefinds/blog1.html">Blogs</a></li>
+                    <li><a href="http://127.0.0.1:5001">Meow Medic</a></li>
+                    <li><a href="http://localhost/felinefinds/vets.php">Vets</a></li>
+                    <li><a href="http://localhost/felinefinds/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </navbar>
+        
+
+
+    <video autoplay muted loop id="myVideo">
+        <source src="{{ url_for('static', filename='bgvid.mp4') }}" type="video/mp4">
+    </video>
+
+    <div class="container">
+    <h1>MeowMedic</h1>
+    <form id="predict-form">
+        <label for="age">Age (Years)</label>
+        <input type="number" id="age" name="age" min="0">
+
+        <label for="breed">Breed</label>
+        <select id="breed" name="breed">
+            <!-- List of breeds -->
+            <option value="Maine Coon">Maine Coon</option>
+            <option value="Siamese">Siamese</option>
+            <option value="Ragdoll">Ragdoll</option>
+            <option value="Bengal">Bengal</option>
+            <option value="Persian">Persian</option>
+            <option value="Sphynx">Sphynx</option>
+            <option value="British Shorthair">British Shorthair</option>
+            <option value="Russian Blue">Russian Blue</option>
+            <option value="Tuxedo">Tuxedo</option>
+            <option value="American Shorthair">American Shorthair</option>
+        </select>
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender">
+            <option value="F">Female</option>
+            <option value="M">Male</option>
+        </select>
+
+        <label for="weight">Weight (lbs)</label>
+        <input type="number" id="weight" name="weight" min="0">
+
+        <label for="environment">Environment</label>
+        <select id="environment" name="environment">
+            <option value="Indoor">Indoor</option>
+            <option value="Outdoor">Outdoor</option>
+        </select>
+
+        <label for="symptom1">Symptom 1</label>
+        <select id="symptom1" name="symptom1">
+            <!-- List of symptoms -->
+            <option value="Frequent Urination">Frequent Urination</option>
+<option value="Weight Loss">Weight Loss</option>
+<option value="Drinking a lot">Drinking a lot</option>
+<option value="Increased Thirst">Increased Thirst</option>
+<option value="Dehydration">Dehydration</option>
+<option value="Gingivitis">Gingivitis</option>
+<option value="Loss of Appetite">Loss of Appetite</option>
+<option value="Poor Coat Condition">Poor Coat Condition</option>
+<option value="Seizures">Seizures</option>
+<option value="Persistent Diarrhea">Persistent Diarrhea</option>
+<option value="Diarrhea">Diarrhea</option>
+<option value="Vomiting">Vomiting</option>
+<option value="Diabetes">Diabetes</option>
+<option value="Joint Problems">Joint Problems</option>
+<option value="Heart Disease">Heart Disease</option>
+<option value="Fever">Fever</option>
+<option value="Abdominal Pain">Abdominal Pain</option>
+<option value="Increased Appetite">Increased Appetite</option>
+<option value="Restlessness">Restlessness</option>
+<option value="Straining to urinate">Straining to urinate</option>
+<option value="Bloody urine">Bloody urine</option>
+<option value="Flea Dirt">Flea Dirt</option>
+<option value="Constant scratching">Constant scratching</option>
+<option value="Hair Loss">Hair Loss</option>
+<option value="Irritation in anus">Irritation in anus</option>
+<option value="Lethargy">Lethargy</option>
+<option value="Depression">Depression</option>
+<option value="Yellow Foam Vomiting">Yellow Foam Vomiting</option>
+<option value="Sweet smelling breath">Sweet smelling breath</option>
+<option value="Chronic infection">Chronic infection</option>
+<option value="Persistent Fever">Persistent Fever</option>
+<option value="Skin infection">Skin infection</option>
+<option value="Anorexia">Anorexia</option>
+<option value="Excessive Energy">Excessive Energy</option>
+<option value="Anemia">Anemia</option>
+<option value="Painful abdomen">Painful abdomen</option>
+<option value="Dry coat">Dry coat</option>
+<option value="Eye conditions">Eye conditions</option>
+<option value="Decreased Appetite">Decreased Appetite</option>
+<option value="Frequent licking">Frequent licking</option>
+<option value="Red or irritated skin">Red or irritated skin</option>
+        </select>
+
+        <label for="symptom2">Symptom 2</label>
+        <select id="symptom2" name="symptom2">
+            <!-- List of symptoms -->
+            <option value="Frequent Urination">Frequent Urination</option>
+            <option value="Weight Loss">Weight Loss</option>
+            <option value="Drinking a lot">Drinking a lot</option>
+            <option value="Increased Thirst">Increased Thirst</option>
+            <option value="Dehydration">Dehydration</option>
+            <option value="Gingivitis">Gingivitis</option>
+            <option value="Loss of Appetite">Loss of Appetite</option>
+            <option value="Poor Coat Condition">Poor Coat Condition</option>
+            <option value="Seizures">Seizures</option>
+            <option value="Persistent Diarrhea">Persistent Diarrhea</option>
+            <option value="Diarrhea">Diarrhea</option>
+            <option value="Vomiting">Vomiting</option>
+            <option value="Diabetes">Diabetes</option>
+            <option value="Joint Problems">Joint Problems</option>
+            <option value="Heart Disease">Heart Disease</option>
+            <option value="Fever">Fever</option>
+            <option value="Abdominal Pain">Abdominal Pain</option>
+            <option value="Increased Appetite">Increased Appetite</option>
+            <option value="Restlessness">Restlessness</option>
+            <option value="Straining to urinate">Straining to urinate</option>
+            <option value="Bloody urine">Bloody urine</option>
+            <option value="Flea Dirt">Flea Dirt</option>
+            <option value="Constant scratching">Constant scratching</option>
+            <option value="Hair Loss">Hair Loss</option>
+            <option value="Irritation in anus">Irritation in anus</option>
+            <option value="Lethargy">Lethargy</option>
+            <option value="Depression">Depression</option>
+            <option value="Yellow Foam Vomiting">Yellow Foam Vomiting</option>
+            <option value="Sweet smelling breath">Sweet smelling breath</option>
+            <option value="Chronic infection">Chronic infection</option>
+            <option value="Persistent Fever">Persistent Fever</option>
+            <option value="Skin infection">Skin infection</option>
+            <option value="Anorexia">Anorexia</option>
+            <option value="Excessive Energy">Excessive Energy</option>
+            <option value="Anemia">Anemia</option>
+            <option value="Painful abdomen">Painful abdomen</option>
+            <option value="Dry coat">Dry coat</option>
+            <option value="Eye conditions">Eye conditions</option>
+            <option value="Decreased Appetite">Decreased Appetite</option>
+            <option value="Frequent licking">Frequent licking</option>
+            <option value="Red or irritated skin">Red or irritated skin</option>            
+        </select>
+
+        <label for="symptom3">Symptom 3</label>
+        <select id="symptom3" name="symptom3">
+            <!-- List of symptoms -->
+            <option value="Frequent Urination">Frequent Urination</option>
+<option value="Weight Loss">Weight Loss</option>
+<option value="Drinking a lot">Drinking a lot</option>
+<option value="Increased Thirst">Increased Thirst</option>
+<option value="Dehydration">Dehydration</option>
+<option value="Gingivitis">Gingivitis</option>
+<option value="Loss of Appetite">Loss of Appetite</option>
+<option value="Poor Coat Condition">Poor Coat Condition</option>
+<option value="Seizures">Seizures</option>
+<option value="Persistent Diarrhea">Persistent Diarrhea</option>
+<option value="Diarrhea">Diarrhea</option>
+<option value="Vomiting">Vomiting</option>
+<option value="Diabetes">Diabetes</option>
+<option value="Joint Problems">Joint Problems</option>
+<option value="Heart Disease">Heart Disease</option>
+<option value="Fever">Fever</option>
+<option value="Abdominal Pain">Abdominal Pain</option>
+<option value="Increased Appetite">Increased Appetite</option>
+<option value="Restlessness">Restlessness</option>
+<option value="Straining to urinate">Straining to urinate</option>
+<option value="Bloody urine">Bloody urine</option>
+<option value="Flea Dirt">Flea Dirt</option>
+<option value="Constant scratching">Constant scratching</option>
+<option value="Hair Loss">Hair Loss</option>
+<option value="Irritation in anus">Irritation in anus</option>
+<option value="Lethargy">Lethargy</option>
+<option value="Depression">Depression</option>
+<option value="Yellow Foam Vomiting">Yellow Foam Vomiting</option>
+<option value="Sweet smelling breath">Sweet smelling breath</option>
+<option value="Chronic infection">Chronic infection</option>
+<option value="Persistent Fever">Persistent Fever</option>
+<option value="Skin infection">Skin infection</option>
+<option value="Anorexia">Anorexia</option>
+<option value="Excessive Energy">Excessive Energy</option>
+<option value="Anemia">Anemia</option>
+<option value="Painful abdomen">Painful abdomen</option>
+<option value="Dry coat">Dry coat</option>
+<option value="Eye conditions">Eye conditions</option>
+<option value="Decreased Appetite">Decreased Appetite</option>
+<option value="Frequent licking">Frequent licking</option>
+<option value="Red or irritated skin">Red or irritated skin</option>
+        </select>
+
+    <button id="predict-button" type="submit">Predict</button>
+
+    </form>
+    
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+     <p id="prediction"></p>
+    </div>
+    
+  </div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
+
