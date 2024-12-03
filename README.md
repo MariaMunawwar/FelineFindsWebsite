@@ -51,7 +51,7 @@ cd FelineFindsWebsite
 4. Set Up the Database:
 - Go to [phpMyAdmin](http://localhost/phpmyadmin/index.php).
 - Create a new database called Felinefinds.
-- Import the provided SQL file (if available) to set up the necessary tables and data.
+- Import the provided SQL file to set up the necessary tables and data.
 
 ### Step 3: Set Up the Machine Learning Model (FelineProject)
 
